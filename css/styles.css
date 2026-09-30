@@ -1,0 +1,384 @@
+/* Khmer Kitchen Bangalore - Luxury Minimalist & Spacious Styling */
+
+@import url('https://fonts.googleapis.com/css2?family=Hanuman:wght@400;700;900&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Roboto+Slab:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+  --font-brand-khmer: 'Roboto Slab', serif;
+  --font-khmer-script: 'Hanuman', serif;
+  --font-heading: 'Montserrat', sans-serif;
+  --font-body: 'Montserrat', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  /* Pair 1 */
+  --pair1-bg: #ffe8b8;
+  --pair1-combo: #085053; /* Dark Cyan */
+
+  /* Pair 2 */
+  --pair2-bg: #b6e5e8;
+  --pair2-combo: #c45620; /* Terracotta Orange */
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+  color: #1a1a1a;
+  font-family: var(--font-body);
+  overflow-x: hidden;
+}
+
+/* Enforced Desktop Mobile Frame: Centered Phone Simulator, Pure Black Surroundings */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000000;
+  min-height: 100vh;
+}
+
+.desktop-simulator-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-width: 430px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 641px) {
+  body {
+    padding: 20px 0;
+    background-color: #000000;
+  }
+
+  .desktop-simulator-wrapper {
+    height: 890px;
+    max-height: calc(100vh - 40px);
+    border-radius: 44px;
+    background: #000000;
+    box-shadow: 
+      0 0 0 10px #1a1a1a,
+      0 0 0 12px #262626,
+      0 30px 60px rgba(0, 0, 0, 0.9);
+    border: 2px solid rgba(255, 255, 255, 0.08);
+    overflow: hidden;
+  }
+
+  .phone-dynamic-island {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 26px;
+    background: #000000;
+    border-radius: 20px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .camera-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #111;
+    border: 1px solid #222;
+  }
+
+  .sensor-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #080808;
+  }
+
+  .phone-home-indicator {
+    position: absolute;
+    bottom: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 130px;
+    height: 4px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+    z-index: 999;
+    pointer-events: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .desktop-simulator-wrapper {
+    max-width: 100%;
+    height: 100dvh;
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+  }
+
+  .phone-dynamic-island,
+  .phone-home-indicator {
+    display: none !important;
+  }
+}
+
+/* App View Container */
+#app-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-color: var(--pair1-bg);
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Custom Scrollbars */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.custom-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+.custom-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scroll::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+}
+
+/* Brand Typography & Glowing Title (Used only where specified) */
+.font-khmer-brand {
+  font-family: var(--font-brand-khmer);
+}
+
+.khmer-glowing-title {
+  font-family: var(--font-brand-khmer);
+  font-weight: 800;
+  letter-spacing: 0.26em;
+  color: #fff1bf;
+  text-shadow: 
+    0 0 10px rgba(246, 170, 15, 0.9),
+    0 0 25px rgba(246, 170, 15, 0.7),
+    0 0 45px rgba(235, 193, 125, 0.4);
+}
+
+.khmer-glowing-subtitle {
+  font-family: var(--font-brand-khmer);
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  color: #fffae8;
+  text-shadow: 
+    0 0 8px rgba(246, 170, 15, 0.8),
+    0 0 20px rgba(246, 170, 15, 0.6);
+}
+
+.khmer-symbol-glow {
+  filter: drop-shadow(0 0 16px rgba(246, 170, 15, 0.85)) drop-shadow(0 0 30px rgba(246, 170, 15, 0.4));
+  mix-blend-mode: screen;
+}
+
+/* Category Grid Square Card */
+.category-square-card {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.category-square-card:active {
+  transform: scale(0.97);
+}
+
+.category-square-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.category-square-card:hover img {
+  transform: scale(1.05);
+}
+
+.category-square-card .category-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.15) 55%, transparent 100%);
+  display: flex;
+  align-items: flex-end;
+  padding: 12px;
+}
+
+.category-square-card .category-card-title {
+  color: #ffffff;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+
+/* End-to-End Decorative Strips with Clean Transparent Linework */
+.strip-container-end-to-end {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.strip-container-end-to-end img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* End-to-End Cambodian Food Script Typography Footer */
+.cambodian-script-footer {
+  width: 100%;
+  font-family: var(--font-khmer-script), serif;
+  user-select: none;
+  line-height: 1.8;
+  letter-spacing: 0.08em;
+  word-break: break-word;
+  text-align: justify;
+  text-align-last: center;
+  padding: 18px 12px 20px 12px;
+  opacity: 0.9;
+}
+
+/* iOS Style Toggle Switch Component */
+.ios-toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.ios-toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.ios-toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #374151; /* Dark off state */
+  transition: 0.25s ease;
+  border-radius: 24px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.ios-toggle-slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 2px;
+  background-color: #ffffff;
+  transition: 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.ios-toggle-switch input:checked + .ios-toggle-slider {
+  background-color: #22c55e; /* Vibrant green on state */
+}
+
+.ios-toggle-switch.toggle-nonveg input:checked + .ios-toggle-slider {
+  background-color: #ef4444; /* Red for non-veg on state */
+}
+
+.ios-toggle-switch input:checked + .ios-toggle-slider:before {
+  transform: translateX(18px);
+}
+
+/* Smooth Hide/Show Top Header on Category Page */
+.category-top-header {
+  transition: transform 0.26s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.22s ease;
+}
+
+.category-top-header.header-hidden {
+  transform: translateY(-110%);
+  pointer-events: none;
+}
+
+.category-top-header.header-visible {
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Luxury White Dish Card */
+.white-dish-card {
+  background-color: #ffffff;
+  border-radius: 18px;
+  padding: 15px;
+  box-shadow: 0 3px 14px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+/* Floating AI Food Guide Bubble (Only element with subtle luxury glow) */
+.ai-bubble-glow {
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25), 0 0 18px rgba(246, 170, 15, 0.45);
+  animation: aiGentleFloat 3s ease-in-out infinite alternate;
+}
+
+@keyframes aiGentleFloat {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(-4px); }
+}
+
+/* Modals & Drawers */
+.modal-bottom-sheet {
+  transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.28s ease;
+}
+.modal-bottom-sheet.sheet-closed {
+  transform: translateY(105%);
+  opacity: 0;
+  pointer-events: none;
+}
+.modal-bottom-sheet.sheet-open {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-backdrop-smooth {
+  transition: opacity 0.3s ease;
+}
+.modal-backdrop-smooth.hidden-backdrop {
+  opacity: 0;
+  pointer-events: none;
+}

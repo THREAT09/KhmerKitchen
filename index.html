@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Khmer Kitchen | Dine-In Menu</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" href="images/khmer_logo_badge.png" type="image/png">
+  
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Roboto+Slab:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-black text-[#1a1a1a] antialiased select-none">
+
+  <!-- Desktop Mobile Simulator Shell (Enforces portrait phone mode on desktop/tablets with black surrounding borders) -->
+  <div class="desktop-simulator-wrapper">
+    <!-- Hardware Notch for Desktop Simulator presentation -->
+    <div class="phone-dynamic-island">
+      <div class="camera-dot"></div>
+      <div class="sensor-dot"></div>
+    </div>
+
+    <!-- Phone App Main Container -->
+    <main id="app-container" class="relative w-full h-full flex flex-col overflow-x-hidden">
+
+      <!-- ======================================================== -->
+      <!-- VIEW 1: HOME CONTINUOUS SCROLL VIEW (LANDING -> SECTIONS) -->
+      <!-- ======================================================== -->
+      <div id="home-scroll-view" class="w-full flex-1 overflow-y-auto custom-scroll relative">
+        
+        <!-- 1. FULLSCREEN LANDING SECTION -->
+        <section id="hero-landing-section" class="relative w-full h-full min-h-[100dvh] flex flex-col justify-between items-center text-center p-6 select-none overflow-hidden">
+          <!-- Background Image Covering the Whole Screen -->
+          <div class="absolute inset-0 z-0">
+            <img 
+              src="images/ambience1.jpg" 
+              alt="Khmer Kitchen Ambience" 
+              class="w-full h-full object-cover scale-105"
+            />
+            <div class="absolute inset-0 bg-black/45"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/60"></div>
+          </div>
+
+          <!-- Top Status Bar Row (Clock only) -->
+          <div class="relative z-10 w-full flex justify-between items-center text-xs font-semibold text-white/90 pt-1">
+            <span class="font-mono">20:45</span>
+            <div class="flex items-center space-x-1.5 text-[11px]">
+              <span>5G</span>
+              <span>📶</span>
+              <span>🔋 98%</span>
+            </div>
+          </div>
+
+          <!-- Middle Brand: Symbol and Glowing KHMER KITCHEN -->
+          <div class="relative z-10 my-auto flex flex-col items-center justify-center">
+            <!-- Glowing Logo Symbol -->
+            <div class="w-24 h-48 max-h-[170px] mb-3 flex items-center justify-center">
+              <img 
+                src="images/khmer_logo_badge.png" 
+                alt="Khmer Kitchen Logo" 
+                class="khmer-symbol-glow max-h-full object-contain"
+              />
+            </div>
+
+            <!-- Variety Font Glowing Brand Titles -->
+            <div class="space-y-0.5">
+              <h1 class="khmer-glowing-title text-4xl leading-none">KHMER</h1>
+              <h2 class="khmer-glowing-subtitle text-4xl leading-none">KITCHEN</h2>
+            </div>
+          </div>
+
+          <!-- Bottom: Down Arrow to Scroll Down -->
+          <div class="relative z-10 pb-6 flex flex-col items-center justify-center text-white/90 animate-bounce cursor-pointer" onclick="document.getElementById('home-menu-content').scrollIntoView({ behavior: 'smooth' })">
+            <span class="text-xs font-medium tracking-wide uppercase mb-1">
+              scroll down to see the menu and order
+            </span>
+            <span class="text-lg">↓</span>
+          </div>
+        </section>
+
+        <!-- 2. ACTUAL ORDERING WEB PAGE CONTENT (Begins right as user scrolls down) -->
+        <div id="home-menu-content" class="w-full bg-[#ffe8b8] text-[#1a1a1a]">
+          
+          <!-- Elephants Strip in Dark Cyan (#085053) right below home page image (end-to-end, clean transparent linework) -->
+          <div class="w-full strip-container-end-to-end pt-4 pb-1">
+            <img src="images/elephants_transparent.png" alt="Cambodian Elephants" class="w-full h-auto block" />
+          </div>
+
+          <!-- Tiny bit of space -->
+          <div class="h-3"></div>
+
+          <!-- 10 Curved-Edged Square Boxes (2 columns x 5 rows) -->
+          <div class="px-5">
+            <div id="home-category-grid" class="grid grid-cols-2 gap-3.5">
+              <!-- Populated dynamically via JS: 10 Square representative image boxes -->
+            </div>
+          </div>
+
+          <!-- Space -->
+          <div class="h-4"></div>
+
+          <!-- Orange Medallion Strip (end-to-end, clean transparent linework) -->
+          <div class="w-full strip-container-end-to-end py-1">
+            <img src="images/orange_transparent.png" alt="Terracotta Medallions" class="w-full h-auto block" />
+          </div>
+
+          <!-- Give some space -->
+          <div class="h-4"></div>
+
+          <!-- 3. SECTION WITH BACKGROUND #b6e5e8: KHMER SIGNATURE DISHES IN A ROW -->
+          <div class="w-full bg-[#b6e5e8] pt-6 pb-4">
+            
+            <!-- Section Heading in Combination Color (#c45620) -->
+            <div class="mb-3.5 px-5">
+              <span class="text-[10px] uppercase font-bold tracking-widest block" style="color: var(--pair2-combo);">
+                Authentic Heritage
+              </span>
+              <h3 class="text-xl font-bold tracking-tight text-black mt-0.5">
+                KHMER SIGNATURES
+              </h3>
+            </div>
+
+            <!-- Signature Dishes Row (Horizontal Scroll) -->
+            <div id="home-signatures-row" class="flex space-x-3.5 overflow-x-auto px-5 pb-3 no-scrollbar">
+              <!-- Populated dynamically via JS with pure white cards -->
+            </div>
+
+            <!-- End-to-End Cambodian Language Food Script replacing illustrations (Combination color #c45620 on #b6e5e8) -->
+            <div class="cambodian-script-footer mt-2" style="color: var(--pair2-combo);">
+              ម្ហូបឆ្ងាញ់ពិសាពិសារជួបជុំគ្រួសារ • រសជាតិខ្មែរបុរាណពីដូនតាអង្គរ • គ្រឿងផ្សំឈ្ងុយឈ្ងប់គ្រឿងបុកគឿងស្លឹកគ្រៃ • សេចក្តីសុខក្នុងអាហារប្រពៃណី • ស្វាគមន៍មកកាន់ផ្ទះបាយខ្មែរ • រសជាតិអង្គរដ៏វិសេសវិសាល • សិល្បៈធ្វើម្ហូបខ្មែរប្រណិត • ត្រីអាម៉ុកខ្ទិះដូងឈ្ងុយឆ្ងាញ់ • ម្រេចកំពតល្បីល្បាញលើពិភពលោក • ម្ហូបខ្មែរពោរពេញដោយក្តីស្រឡាញ់
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- ======================================================== -->
+      <!-- VIEW 2: CATEGORY DEDICATED PAGE (OPENS ON BOX CLICK)     -->
+      <!-- ======================================================== -->
+      <div id="category-page-view" class="hidden w-full flex-1 overflow-y-auto custom-scroll relative select-none">
+        
+        <!-- Collapsible Top Header (Hides on scroll down, shows on scroll up) -->
+        <header id="category-collapsible-header" class="category-top-header header-visible sticky top-0 z-30 bg-inherit/95 backdrop-blur-md px-4 pt-3 pb-2.5 border-b border-black/5">
+          
+          <!-- Top Row: Back Button & Small Search Bar -->
+          <div class="flex items-center space-x-2.5 mb-2.5">
+            <!-- Small Box Saying "Back" -->
+            <button 
+              onclick="goBackToHome()"
+              class="px-3 py-1.5 rounded-xl bg-white text-black text-xs font-bold border border-black/10 shadow-sm hover:bg-gray-100 flex items-center space-x-1 flex-shrink-0"
+            >
+              <span>←</span>
+              <span>Back</span>
+            </button>
+
+            <!-- Small Search Bar -->
+            <div class="relative flex-1">
+              <span class="absolute left-2.5 top-1/2 -translate-y-1/2 text-gray-400 text-xs">🔍</span>
+              <input 
+                type="text" 
+                id="category-search-input"
+                placeholder="Search dishes or ingredients..."
+                class="w-full pl-7 pr-3 py-1.5 rounded-xl bg-white border border-black/10 text-xs text-black placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-black shadow-sm"
+              />
+            </div>
+          </div>
+
+          <!-- Two Toggle Bars: One for Veg, One for Non-Veg -->
+          <div class="grid grid-cols-2 gap-2 mb-2.5">
+            <!-- Veg Toggle -->
+            <div class="bg-white p-2 rounded-xl border border-black/5 shadow-sm flex items-center justify-between">
+              <span class="text-xs font-bold text-black flex items-center gap-1">
+                <span>🟢</span> Veg
+              </span>
+              <label class="ios-toggle-switch">
+                <input type="checkbox" id="toggle-veg-input">
+                <span class="ios-toggle-slider"></span>
+              </label>
+            </div>
+
+            <!-- Non-Veg Toggle -->
+            <div class="bg-white p-2 rounded-xl border border-black/5 shadow-sm flex items-center justify-between">
+              <span class="text-xs font-bold text-black flex items-center gap-1">
+                <span>🔴</span> Non-Veg
+              </span>
+              <label class="ios-toggle-switch toggle-nonveg">
+                <input type="checkbox" id="toggle-nonveg-input">
+                <span class="ios-toggle-slider"></span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Small Single Row Boxes containing ALL category names only (Horizontally Scrollable) -->
+          <div id="category-horizontal-pills" class="flex space-x-1.5 overflow-x-auto no-scrollbar py-1">
+            <!-- Populated dynamically via JS: Names only + "All" -->
+          </div>
+
+        </header>
+
+        <!-- Category Content Body -->
+        <div class="p-5 pb-6">
+          
+          <!-- Category Title (In combination color with increased font size) -->
+          <div class="mb-5">
+            <h2 id="category-page-title" class="text-2xl font-bold tracking-tight">
+              <!-- Dynamically populated -->
+            </h2>
+            <p id="category-page-subtitle" class="text-xs text-gray-700 mt-0.5">
+              <!-- Dynamically populated -->
+            </p>
+          </div>
+
+          <!-- Dish Items List (Spacious pure white cards with black/white text) -->
+          <div id="category-dishes-list" class="space-y-3.5">
+            <!-- Populated dynamically via JS -->
+          </div>
+
+          <!-- End-to-End Cambodian Language Food Script (dynamically matches active combination color) -->
+          <div id="category-page-cambodian-script" class="cambodian-script-footer mt-6">
+            ម្ហូបឆ្ងាញ់ពិសាពិសារជួបជុំគ្រួសារ • រសជាតិខ្មែរបុរាណពីដូនតាអង្គរ • គ្រឿងផ្សំឈ្ងុយឈ្ងប់គ្រឿងបុកគឿងស្លឹកគ្រៃ • សេចក្តីសុខក្នុងអាហារប្រពៃណី • ស្វាគមន៍មកកាន់ផ្ទះបាយខ្មែរ • រសជាតិអង្គរដ៏វិសេសវិសាល • សិល្បៈធ្វើម្ហូបខ្មែរប្រណិត • ត្រីអាម៉ុកខ្ទិះដូងឈ្ងុយឆ្ងាញ់ • ម្រេចកំពតល្បីល្បាញលើពិភពលោក • ម្ហូបខ្មែរពោរពេញដោយក្តីស្រឡាញ់
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- ======================================================== -->
+      <!-- VIEW 3: ORDER SUCCESS / TRANSMITTED SCREEN               -->
+      <!-- ======================================================== -->
+      <div id="order-success-view" class="hidden w-full flex-1 overflow-y-auto custom-scroll bg-[#ffe8b8] p-6 text-center select-none">
+        <div class="my-auto py-8 max-w-sm mx-auto space-y-4">
+          <div class="w-14 h-14 mx-auto rounded-full bg-white shadow-md flex items-center justify-center text-2xl text-emerald-600 font-bold">
+            ✓
+          </div>
+          <div>
+            <h2 class="text-xl font-bold text-black">Order Transmitted!</h2>
+            <p class="text-xs text-gray-700 mt-1">Our chef counter in the courtyard is preparing your dishes.</p>
+          </div>
+
+          <div class="white-dish-card text-left space-y-2 text-xs">
+            <div class="flex justify-between">
+              <span class="text-gray-500">Order ID:</span>
+              <span id="success-order-id" class="font-mono font-bold text-black">KK-4921</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-gray-500">Destination:</span>
+              <span id="success-table-text" class="font-bold text-black">Table 12 • Courtyard Garden</span>
+            </div>
+            <div class="pt-2 border-t border-gray-100">
+              <div id="success-order-items" class="space-y-1"></div>
+            </div>
+            <div class="pt-2 border-t border-gray-100 flex justify-between font-bold text-sm text-black">
+              <span>Total Bill (inc. GST):</span>
+              <span id="success-total-val" class="font-mono">₹0</span>
+            </div>
+          </div>
+
+          <button 
+            onclick="dismissSuccessScreen()"
+            class="w-full py-3 rounded-xl text-xs font-bold text-white bg-black hover:bg-gray-800 transition"
+          >
+            Back to Menu
+          </button>
+        </div>
+      </div>
+
+      <!-- ======================================================== -->
+      <!-- FLOATING UI ELEMENTS: AI CIRCLE & CART BAR               -->
+      <!-- ======================================================== -->
+
+      <!-- Floating AI Food Guide Circle in the corner (Only glowing element) -->
+      <button 
+        id="floating-ai-circle"
+        onclick="openAIChat()"
+        class="absolute bottom-6 right-4 z-40 w-12 h-12 rounded-full text-white flex items-center justify-center shadow-xl ai-bubble-glow transition active:scale-95"
+        style="background-color: var(--pair1-combo);"
+        title="Ask Somnang AI Food Guide"
+      >
+        <span class="text-lg">✨</span>
+      </button>
+
+      <!-- Floating Cart Bottom Bar -->
+      <div 
+        id="floating-cart-bar" 
+        class="absolute bottom-4 left-4 right-20 z-40 p-2.5 rounded-2xl bg-black text-white shadow-2xl transform translate-y-24 opacity-0 transition-all duration-300 flex items-center justify-between cursor-pointer"
+        onclick="openCartSheet()"
+      >
+        <div class="flex items-center space-x-2 pl-1">
+          <span class="text-sm">🛒</span>
+          <span id="floating-cart-count" class="bg-white text-black text-[10px] font-black w-4 h-4 rounded-full flex items-center justify-center font-mono">0</span>
+          <span id="floating-cart-total" class="font-mono text-xs font-bold pl-1">₹0</span>
+        </div>
+        <span class="text-xs font-bold pr-1">View Order ➔</span>
+      </div>
+
+      <!-- ======================================================== -->
+      <!-- MODALS & DRAWERS                                         -->
+      <!-- ======================================================== -->
+      <div id="modal-backdrop" class="modal-backdrop-smooth hidden-backdrop absolute inset-0 bg-black/60 backdrop-blur-sm z-40"></div>
+
+      <!-- Dish Detail Modal -->
+      <div id="dish-detail-modal" class="modal-bottom-sheet sheet-closed absolute bottom-0 left-0 right-0 max-h-[90%] bg-white rounded-t-3xl shadow-2xl z-50 overflow-hidden flex flex-col">
+        <div id="dish-detail-content"></div>
+      </div>
+
+      <!-- Order Cart Sheet Drawer -->
+      <div id="order-cart-sheet" class="modal-bottom-sheet sheet-closed absolute bottom-0 left-0 right-0 max-h-[85%] bg-white rounded-t-3xl shadow-2xl z-50 overflow-hidden flex flex-col">
+        <div class="p-3.5 border-b border-gray-100 flex items-center justify-between">
+          <h3 class="text-sm font-bold text-black">Your Table Order</h3>
+          <button onclick="closeCartSheet()" class="w-7 h-7 rounded-full bg-gray-100 text-black flex items-center justify-center text-xs">✕</button>
+        </div>
+        <div id="cart-sheet-content" class="p-4 overflow-y-auto custom-scroll flex-1"></div>
+      </div>
+
+      <!-- Somnang AI Food Concierge Chat Drawer -->
+      <div id="ai-chat-drawer" class="modal-bottom-sheet sheet-closed absolute bottom-0 left-0 right-0 h-[82%] bg-[#fcfbf9] rounded-t-3xl shadow-2xl z-50 overflow-hidden flex flex-col">
+        <div class="p-3.5 bg-white border-b border-gray-100 flex items-center justify-between">
+          <div class="flex items-center space-x-2">
+            <span class="text-lg">✨</span>
+            <div>
+              <h4 class="text-xs font-bold text-black">Somnang (AI Food Concierge)</h4>
+              <p class="text-[10px] text-gray-500">Trained on Khmer Kitchen menu & spice pairings</p>
+            </div>
+          </div>
+          <button onclick="closeAIChat()" class="w-7 h-7 rounded-full bg-gray-100 text-black flex items-center justify-center text-xs">✕</button>
+        </div>
+
+        <div id="ai-chat-messages" class="flex-1 p-4 overflow-y-auto custom-scroll space-y-2.5"></div>
+
+        <div class="p-3 bg-white border-t border-gray-100 flex items-center space-x-2">
+          <input 
+            type="text" 
+            id="ai-user-input"
+            placeholder="Ask about dishes, budget, Kroeung..." 
+            class="flex-1 text-xs px-3.5 py-2 rounded-xl bg-gray-100 border border-gray-200 text-black placeholder-gray-400 focus:outline-none focus:border-black"
+            onkeydown="if(event.key === 'Enter') sendAIMessage()"
+          />
+          <button onclick="sendAIMessage()" class="px-3.5 py-2 rounded-xl text-xs font-bold text-white bg-black">Send</button>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- Simulated iOS Bottom Bar for Desktop Presentation -->
+    <div class="phone-home-indicator"></div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/ai-guide.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
